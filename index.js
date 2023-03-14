@@ -2,7 +2,15 @@ const express = require("express");
 const app = express();
 
 app.get("/", function (req, res) {
-  res.send("Hello World");
+  let data = [
+    {
+      name: "hamza",
+    },
+    {
+      name: "altamas",
+    },
+  ];
+  res.send(data);
 });
 
 app.listen(8000);
