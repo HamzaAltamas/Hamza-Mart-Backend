@@ -1,6 +1,9 @@
 const express = require("express");
 const dbConnection = require("./Config/db");
 const User = require("./models/userSchema");
+const dotenv = require("dotenv");
+dotenv.config();
+let routes = require("./Routes");
 const app = express();
 const userSchema = require("./models/userSchema");
 const tokenVerify = require("./middleware/tokenverify");
@@ -8,8 +11,10 @@ var jwt = require("jsonwebtoken");
 
 app.use(express.json());
 
-dbConnection();
+// console.log(process.env.BASE_URL);
 
+dbConnection();
+app.use(routes);
 // let asd = jwt.sign({ name: "Hamza Altamas" }, "userpass");
 // console.log(asd);
 
